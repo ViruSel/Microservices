@@ -1,0 +1,18 @@
+services:
+  user-server:
+    container_name: user-server
+    build:
+      context: docker-user-server
+      dockerfile: Dockerfile
+    image: firebase-users:latest
+    ports:
+      - 8000:8080
+
+  oauth-server:
+    container_name: oauth-server
+    build:
+      context: docker-oauth-server
+      dockerfile: Dockerfile
+    image: oauth-client:latest
+    ports:
+      - 8001:8080
